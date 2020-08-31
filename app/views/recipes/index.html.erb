@@ -1,0 +1,21 @@
+<h2>Recipes:</h2>
+
+<%= link_to "Add recipe", new_recipe_path %>
+
+<% if @recipes.empty? %>
+  Sorry we don't have any recipes at the minute. Please try again later.
+<% else %>
+
+  <ul style="list-style: none">
+    <% @recipes.each do |recipe| %>
+      <li>
+          <h3>
+            <%= link_to recipe.name, recipe %>: <%= link_to "Original Recipe", recipe.url %>
+          </h3>
+
+          <%= image_tag recipe.picture_url, width: "200px", height: "150px" %>
+      </li>
+    <% end %>
+  </ul>
+
+<% end %>

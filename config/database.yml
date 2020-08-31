@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: meal-planner-development
+
+test:
+  <<: *default
+  database: meal-planner-test
+
+production:
+  <<: *default
+  database: meal-planner-production
