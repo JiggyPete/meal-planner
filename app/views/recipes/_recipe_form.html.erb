@@ -1,0 +1,52 @@
+<%= form_for setup_recipe(recipe) do |recipe_form| %>
+  <%= recipe_form.label :name %>
+  <%= recipe_form.text_field :name %>
+
+  <%= recipe_form.label :picture_url %>
+  <%= recipe_form.text_field :picture_url %>
+
+  <%= recipe_form.label :url %>
+  <%= recipe_form.text_field :url %>
+
+  <%= recipe_form.label :instructions %>
+  <%= recipe_form.text_area :instructions %>
+  <br/>
+
+
+  <h2>Ingredients</h2>
+  <div id="ingredients"></div>
+  <div class="ingredient-template">
+    <%= recipe_form.fields_for :ingredients, visible: false do |ingredient_fields| %>
+        <%= ingredient_fields.label :food_type %>
+        <%= ingredient_fields.text_field :food_type %>
+
+        <%= ingredient_fields.label :quantity %>
+        <%= ingredient_fields.text_field :quantity %>
+
+        <%= ingredient_fields.label :name %>
+        <%= ingredient_fields.text_field :name %>
+        <br/>
+      <% end %>
+  </div>
+  <br/>
+  <button class="add-ingredient">Add Ingredient</button>
+
+  <br/>
+  <%= recipe_form.submit "Submit" %>
+<% end %>
+
+<script>
+  // var template = document.getElementsByClassName("ingredient-template")[0]
+  // template.hidden = true;
+
+  // var addIngredientButton = document.getElementsByClassName("add-ingredient")[0]
+  // addIngredientButton.addEventListener("click", function(event) {
+  //   event.preventDefault();
+
+  //   template = document.getElementsByClassName("ingredient-template")[0]
+  //   clone = template.cloneNode(true)
+  //   clone.className = "ingredient"
+  //   clone.hidden = false
+  //   document.getElementById("ingredients").append(clone)
+//  })
+</script>

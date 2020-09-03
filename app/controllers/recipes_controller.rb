@@ -31,7 +31,7 @@ class RecipesController < ApplicationController
 
     if @recipe.update recipe_params
       flash[:notice] = "Successfully updated recipe"
-      redirect_to :show
+      redirect_to recipe_path(@recipe)
     else
       flash[:errors] = @recipe.errors.full_messages
       render :edit
@@ -41,7 +41,12 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :picture_url, :url, :instructions)
+    params.require(:recipe).
+      permit(
+        :name,
+        :picture_url,
+        :url, :instructions,
+        ingredients_attributes: [:food_type, :quantity, :name])
   end
 
 end

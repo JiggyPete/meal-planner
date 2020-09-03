@@ -2,4 +2,19 @@
   <%= @recipe.name %>: <%= link_to "Original Recipe", @recipe.url %>
 </h3>
 
+<%= link_to "Edit", edit_recipe_path(@recipe) %>
+<br/>
 <%= image_tag @recipe.picture_url, width: "200px", height: "150px" %>
+<br/>
+
+Instructions:
+
+<% @recipe.instructions.split("\n").each do |i| %>
+  <%= "<p>#{i}</p>".html_safe %>
+<% end %>
+
+Ingredients:
+
+<% @recipe.ingredients.each do |i| %>
+  <%= "<p>#{i.name}</p>".html_safe %>
+<% end %>
