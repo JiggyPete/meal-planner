@@ -16,7 +16,7 @@
   <h2>Ingredients</h2>
   <div id="ingredients"></div>
   <div class="ingredient-template">
-    <%= recipe_form.fields_for :ingredients, visible: false do |ingredient_fields| %>
+    <%= recipe_form.fields_for :ingredients do |ingredient_fields| %>
         <%= ingredient_fields.label :food_type %>
         <%= ingredient_fields.text_field :food_type %>
 

@@ -46,7 +46,7 @@ class RecipesController < ApplicationController
         :name,
         :picture_url,
         :url, :instructions,
-        ingredients_attributes: [:food_type, :quantity, :name])
+        ingredients_attributes: [:id, :food_type, :quantity, :name])
   end
 
 end
